@@ -2,6 +2,9 @@ module.exports = (robot) ->
   robot.respond /cute me/, (msg) ->
     cuteMe(msg)
 
+  robot.hear /unicorn chaser/, (msg) ->
+    cuteMe(msg)
+
   cuteMe = (msg) ->
     msg.http("http://api.dailycute.com.net/v1/posts/all")
       .get() (body) ->
