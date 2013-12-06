@@ -10,7 +10,6 @@
 # Commands:
 #   hubot cute me - Receive a cute thing
 #   unicorn chaser - Receieve a cute thing
-
 module.exports = (robot) ->
   robot.respond /cute me/, (msg) ->
     cuteMe(msg)
@@ -19,7 +18,7 @@ module.exports = (robot) ->
     cuteMe(msg)
 
   cuteMe = (msg) ->
-    msg.http('http://api.dailycute.com.net/v1/posts/all')
-      .get() (body) ->
+    msg.http('http://api.dailycute.net/v1/posts/all.json')
+      .get() (err, response, body) ->
         results = JSON.parse(body)
         msg.send (msg.random results.posts).image_src
