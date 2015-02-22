@@ -18,7 +18,8 @@ module.exports = (robot) ->
     cuteMe(msg)
 
   cuteMe = (msg) ->
-    msg.http('http://api.dailycute.net/v1/posts/all.json')
+    msg.http('http://www.reddit.com/r/aww/.json')
+      .header('Accept', 'application/json')
       .get() (err, response, body) ->
         results = JSON.parse(body)
-        msg.send (msg.random results.posts).image_src
+        msg.send (msg.random results.data.children).data.url.concat('.png')
