@@ -9,7 +9,7 @@
 #
 # Commands:
 #   hubot cute me - Receive a cute thing
-#   unicorn chaser - Receieve a cute thing
+#   unicorn chaser - Receive a cute thing
 module.exports = (robot) ->
   robot.respond /cute me/, (msg) ->
     cuteMe(msg)
